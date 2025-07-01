@@ -23,7 +23,11 @@ const startServer = async () => {
 
     // Middleware
     app.use(express.json());
-    app.use(cors());
+    app.use(cors({
+  origin: "https://ecommerce-frontendd.onrender.com",  // your frontend domain
+  credentials: true,  // if you use cookies or Authorization header
+}));
+
 
     // Routes
     app.use("/api/user", userRoute);
