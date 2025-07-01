@@ -25,8 +25,8 @@ const startServer = async () => {
     app.use(express.json());
     app.use(cors({
   origin: [
-    "https://ecommerce-frontendd.onrender.com",
-    "https://ecomerce-frontendd.onrender.com"   // the misspelled one
+    "https://ecommerce-frontendd.onrender.com",  // frontend
+      "https://ecommerce-admin-j06c.onrender.com"  // admin panel  // the misspelled one
   ],
   credentials: true,
 }));
