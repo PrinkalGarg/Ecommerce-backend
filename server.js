@@ -25,6 +25,7 @@ const startServer = async () => {
     app.use(express.json());
     app.use(cors());
 
+
     // Routes
     app.use("/api/user", userRoute);
     app.use("/api/product", productrouter);
