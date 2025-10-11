@@ -4,7 +4,8 @@ import {
     singleProduct,
     addProduct,
     removeProduct,
-    ListSingleProduct
+    ListSingleProduct,
+    searchImage
 } from "../controller/ProductControler.js";
 import upload from "../middleware/muter.js";
 import AdminAuth from "../middleware/AdminAuth.js";
@@ -13,7 +14,7 @@ const productrouter = express.Router();
 
 // Route to get a single product
 productrouter.get("/single", singleProduct);
-
+productrouter.post("/search-image", upload.single("image"), searchImage);
 // Route to add a new product
 productrouter.post(
   "/add",
