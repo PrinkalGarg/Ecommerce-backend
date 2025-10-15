@@ -122,7 +122,7 @@ const addProduct = async (req, res) => {
     }
 
     // 3) Call ML service to compute embeddings for each uploaded image (batch)
-    const mlBase = (process.env.ML_SERVICE_URL || "http://localhost:5000").replace(/\/$/, "");
+    const mlBase = (process.env.ML_SERVICE_URL || "http://0.0.0.0:8080").replace(/\/$/, "");
     // prefer /embed_batch endpoint (expects { image_urls: [...] })
     let embeddings = [];
     try {
@@ -264,7 +264,7 @@ const ListSingleProduct = async (req, res) => {
     const queryImageUrl = uploadResult.secure_url;
 
     // Request embedding from ML service
-    const mlBase = (process.env.ML_SERVICE_URL || "http://localhost:5000").replace(/\/$/, "");
+    const mlBase = (process.env.ML_SERVICE_URL || "http://0.0.0.0:8080").replace(/\/$/, "");
     const mlResp = await axios.post(`${mlBase}/embed`, { image_url: queryImageUrl }, { timeout: 60000 });
     const queryEmb = mlResp?.data?.embedding;
     if (!Array.isArray(queryEmb) || queryEmb.length === 0) {
