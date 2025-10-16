@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-// Placing Order Using COD
+// Placing Order Using COD Ok
 const CodMethod = async (req, res) => {
     try {
         const {
